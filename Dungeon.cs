@@ -48,6 +48,7 @@ namespace TRPGTest
         //쉬움
         public void Dungeon1(Player player)
         {
+            
             bool clear = ClearDungeon(15, player.Defense); // 쉬운 던전의 권장 방어력은 15입니다.
             if (clear)
             {
@@ -55,6 +56,19 @@ namespace TRPGTest
                 int reward = Compensation(baseReward, player.Attack);
                 player.Gold += reward;
                 Console.WriteLine($"던전을 클리어했습니다! 보상으로 {reward} G를 획득하였습니다.");
+                
+                player.DungeonClearCount++;
+                if ((player.DungeonClearCount/2) >player.LV)
+                {
+                    player.LV++;
+                    player.Attack += 1; // 공격력 증가
+                    player.Defense += 2; // 방어력 증가
+                    Console.WriteLine($"레벨이 올랐습니다. 현재 레벨: {player.LV}, 공격력: {player.Attack}, 방어력: {player.Defense}");
+                }
+                else
+                {
+                    Console.WriteLine($"던전을 클리어하였습니다. 현재 레벨: {player.LV}, 공격력: {player.Attack}, 방어력: {player.Defense}");
+                }
             }
             else
             {
@@ -79,6 +93,18 @@ namespace TRPGTest
                 int reward = Compensation(baseReward, player.Attack);
                 player.Gold += reward;
                 Console.WriteLine($"던전을 클리어했습니다! 보상으로 {reward} G를 획득하였습니다.");
+                player.DungeonClearCount++;
+                if ((player.DungeonClearCount / 3) > player.LV)
+                {
+                    player.LV++;
+                    player.Attack += 1; // 공격력 증가
+                    player.Defense += 2; // 방어력 증가
+                    Console.WriteLine($"레벨이 올랐습니다. 현재 레벨: {player.LV}, 공격력: {player.Attack}, 방어력: {player.Defense}");
+                }
+                else
+                {
+                    Console.WriteLine($"던전을 클리어하였습니다. 현재 레벨: {player.LV}, 공격력: {player.Attack}, 방어력: {player.Defense}");
+                }
             }
             else
             {
@@ -102,6 +128,18 @@ namespace TRPGTest
                 int reward = Compensation(baseReward, player.Attack);
                 player.Gold += reward;
                 Console.WriteLine($"던전을 클리어했습니다! 보상으로 {reward} G를 획득하였습니다.");
+                player.DungeonClearCount++;
+                if ((player.DungeonClearCount / 6) > player.LV)
+                {
+                    player.LV++;
+                    player.Attack += 1; // 공격력 증가
+                    player.Defense += 2; // 방어력 증가
+                    Console.WriteLine($"레벨이 올랐습니다. 현재 레벨: {player.LV}, 공격력: {player.Attack}, 방어력: {player.Defense}");
+                }
+                else
+                {
+                    Console.WriteLine($"던전을 클리어하였습니다. 현재 레벨: {player.LV}, 공격력: {player.Attack}, 방어력: {player.Defense}");
+                }
             }
             else
             {
@@ -147,8 +185,10 @@ namespace TRPGTest
                                                                                                               ");
 
             Console.WriteLine("게임 오버!!! 체력이 0이 되었습니다");
+            Console.WriteLine("죽어서 모든 돈을 잃어버렸습니다....");
             Console.WriteLine();
             player.HP = 100;
+            player.Gold = 0;
             string re = Console.ReadLine();
             Console.WriteLine("아무키나 눌러 던전으로 돌아가기");
             string input = Console.ReadLine();

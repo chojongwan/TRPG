@@ -1,6 +1,4 @@
-﻿using System.Dynamic;
-
-namespace TRPGTest
+﻿namespace TRPGTest
 {
     public enum ItemType                // 열거형 (아이템 종류, 종류 구분으로 공격력 방어력을 구분)
     {
@@ -14,7 +12,9 @@ namespace TRPGTest
         public int Attack { get; set; } = 5;
         public int Defense { get; set; } = 5;
         public int HP { get; set; } = 100;
+        public int DungeonClearCount { get; set; } = 0;     //던전클리어 카운트에 따른 레벨 변화
         public List<Item> Inventory { get; } = new List<Item>(); // 인벤토리 리스트
+
     }
     public class Item          //프로퍼티
     {
@@ -25,6 +25,7 @@ namespace TRPGTest
         public bool IsPurchased { get; set; } = false; // 아이템 구매 여부
         public ItemType Type { get; set; } // 아이템 종류
         public bool IsEquipped { get; set; } //아이템 장착 여부
+
 
         public Item(string name, string effect, string description, int price, ItemType type)
         {
@@ -42,8 +43,8 @@ namespace TRPGTest
         Inventory inventory =new Inventory();
         Shop shop =new Shop();
         Dungeon dungeon =new Dungeon();
-       // Rest rest= new Rest();
-
+        Rast rast =new Rast();
+        Save Save = new Save();
         public void ShowMainMenu()
         {
             string input = "";
@@ -68,8 +69,10 @@ $$ |  $$ |$$  __$$ |$$ | $$ | $$ |$$   ____|      $$\   $$ |  $$ |$$\ $$  __$$ |
                 Console.WriteLine("2. 인벤토리");
                 Console.WriteLine("3. 상점");
                 Console.WriteLine("4. 던전");
-                Console.WriteLine("5. 휴식");
-                //Console.WriteLine("5. 저장하기\n");
+                Console.WriteLine("5. 휴식하기\n");
+                Console.WriteLine("6. 저장하기");
+                Console.WriteLine("7. 불러오기\n");
+
                 Console.WriteLine("원하시는 행동을 입력해주세요.");
 
                 input = Console.ReadLine();
@@ -90,9 +93,15 @@ $$ |  $$ |$$  __$$ |$$ | $$ | $$ |$$   ____|      $$\   $$ |  $$ |$$\ $$  __$$ |
                     case "4":
                         dungeon.ShowDungeon(player);
                         break;
-                    //case "5":
-                    //    rest.RestHPUP(player);
-                    //    break;
+                    case "5":
+                        rast.Rest( player);
+                        break;
+                    case "6":
+                        Save.SaveGameData( player);
+                        break;
+                    case "7":
+                        Save.LoadGameData();
+                        break;
                     default:
                         Console.WriteLine("잘못된 입력입니다.");
                         ShowMainMenu();
