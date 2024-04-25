@@ -58,7 +58,7 @@ namespace TRPGTest
                 Console.WriteLine($"던전을 클리어했습니다! 보상으로 {reward} G를 획득하였습니다.");
                 
                 player.DungeonClearCount++;
-                if ((player.DungeonClearCount/2) >player.LV)
+                if ((player.DungeonClearCount/6) >player.LV)
                 {
                     player.LV++;
                     player.Attack += 1; // 공격력 증가
@@ -94,7 +94,7 @@ namespace TRPGTest
                 player.Gold += reward;
                 Console.WriteLine($"던전을 클리어했습니다! 보상으로 {reward} G를 획득하였습니다.");
                 player.DungeonClearCount++;
-                if ((player.DungeonClearCount / 3) > player.LV)
+                if ((player.DungeonClearCount / 4) > player.LV)
                 {
                     player.LV++;
                     player.Attack += 1; // 공격력 증가
@@ -129,7 +129,7 @@ namespace TRPGTest
                 player.Gold += reward;
                 Console.WriteLine($"던전을 클리어했습니다! 보상으로 {reward} G를 획득하였습니다.");
                 player.DungeonClearCount++;
-                if ((player.DungeonClearCount / 6) > player.LV)
+                if ((player.DungeonClearCount / 2) > player.LV)
                 {
                     player.LV++;
                     player.Attack += 1; // 공격력 증가
