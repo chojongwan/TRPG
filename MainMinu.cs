@@ -1,4 +1,6 @@
-﻿namespace TRPGTest
+﻿using System.Dynamic;
+
+namespace TRPGTest
 {
     public enum ItemType                // 열거형 (아이템 종류, 종류 구분으로 공격력 방어력을 구분)
     {
@@ -40,6 +42,8 @@
         Inventory inventory =new Inventory();
         Shop shop =new Shop();
         Dungeon dungeon =new Dungeon();
+       // Rest rest= new Rest();
+
         public void ShowMainMenu()
         {
             string input = "";
@@ -64,6 +68,7 @@ $$ |  $$ |$$  __$$ |$$ | $$ | $$ |$$   ____|      $$\   $$ |  $$ |$$\ $$  __$$ |
                 Console.WriteLine("2. 인벤토리");
                 Console.WriteLine("3. 상점");
                 Console.WriteLine("4. 던전");
+                Console.WriteLine("5. 휴식");
                 //Console.WriteLine("5. 저장하기\n");
                 Console.WriteLine("원하시는 행동을 입력해주세요.");
 
@@ -86,7 +91,7 @@ $$ |  $$ |$$  __$$ |$$ | $$ | $$ |$$   ____|      $$\   $$ |  $$ |$$\ $$  __$$ |
                         dungeon.ShowDungeon(player);
                         break;
                     //case "5":
-                    //    SavePlayerData();
+                    //    rest.RestHPUP(player);
                     //    break;
                     default:
                         Console.WriteLine("잘못된 입력입니다.");
