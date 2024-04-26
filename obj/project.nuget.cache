@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "aAyBkDk0YNc=",
+  "dgSpecHash": "WpbzsTCLwd8=",
   "success": true,
   "projectFilePath": "C:\\Users\\chojo\\source\\repos\\TRPG\\TRPGTest\\TRPGTest.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\chojo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

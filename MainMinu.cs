@@ -39,12 +39,12 @@
 
     public class MainMinu
     {
-        Status showStatus = new Status();
-        Inventory inventory = new Inventory();
-        Shop shop = new Shop();
-        Dungeon dungeon = new Dungeon();
-        Rast rast = new Rast();
-
+        Status showStatus= new Status();
+        Inventory inventory =new Inventory();
+        Shop shop =new Shop();
+        Dungeon dungeon =new Dungeon();
+        Rast rast =new Rast();
+        
         public void ShowMainMenu()
         {
             string input = "";
@@ -94,11 +94,11 @@ $$ |  $$ |$$  __$$ |$$ | $$ | $$ |$$   ____|      $$\   $$ |  $$ |$$\ $$  __$$ |
                         dungeon.ShowDungeon(player);
                         break;
                     case "5":
-                        rast.Rest(player);
+                        rast.Rest( player);
                         break;
                     case "6":
                         Save Save = new Save();
-                        Save.SaveGameData(player);
+                        Save.SaveGameData( player);
                         break;
                     case "7":
                         Save saveInstance = new Save();
