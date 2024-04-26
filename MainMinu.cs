@@ -39,12 +39,12 @@
 
     public class MainMinu
     {
-        Status showStatus= new Status();
-        Inventory inventory =new Inventory();
-        Shop shop =new Shop();
-        Dungeon dungeon =new Dungeon();
-        Rast rast =new Rast();
-       // Save Save = new Save();
+        Status showStatus = new Status();
+        Inventory inventory = new Inventory();
+        Shop shop = new Shop();
+        Dungeon dungeon = new Dungeon();
+        Rast rast = new Rast();
+
         public void ShowMainMenu()
         {
             string input = "";
@@ -70,8 +70,8 @@ $$ |  $$ |$$  __$$ |$$ | $$ | $$ |$$   ____|      $$\   $$ |  $$ |$$\ $$  __$$ |
                 Console.WriteLine("3. 상점");
                 Console.WriteLine("4. 던전");
                 Console.WriteLine("5. 휴식하기\n");
-                //Console.WriteLine("6. 저장하기");
-                //Console.WriteLine("7. 불러오기\n");
+                Console.WriteLine("6. 저장하기");
+                Console.WriteLine("7. 불러오기\n");
 
                 Console.WriteLine("원하시는 행동을 입력해주세요.");
 
@@ -94,14 +94,16 @@ $$ |  $$ |$$  __$$ |$$ | $$ | $$ |$$   ____|      $$\   $$ |  $$ |$$\ $$  __$$ |
                         dungeon.ShowDungeon(player);
                         break;
                     case "5":
-                        rast.Rest( player);
+                        rast.Rest(player);
                         break;
-                    //case "6":
-                    //    Save.SaveGameData( player);
-                    //    break;
-                    //case "7":
-                    //    Save.LoadGameData();
-                    //    break;
+                    case "6":
+                        Save Save = new Save();
+                        Save.SaveGameData(player);
+                        break;
+                    case "7":
+                        Save saveInstance = new Save();
+                        player = saveInstance.LoadGameData();
+                        break;
                     default:
                         Console.WriteLine("잘못된 입력입니다.");
                         ShowMainMenu();
