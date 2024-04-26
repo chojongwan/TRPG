@@ -1,9 +1,9 @@
 {
-  "Gold": 1806,
+  "Gold": 800,
   "LV": 1,
   "Attack": 5,
   "Defense": 5,
-  "HP": 83,
-  "DungeonClearCount": 1,
+  "HP": 100,
+  "DungeonClearCount": 0,
   "Inventory": []
 }
